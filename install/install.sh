@@ -96,7 +96,6 @@ pacstrap /mnt base linux linux-firmware zram-generator openssh iwd autoconf auto
 
 genfstab -L /mnt >> /mnt/etc/fstab
 echo "${HOSTNAME}" > /mnt/etc/hostname
-echo -e "127.0.0.1	localhost\n::1		localhost"
 
 echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
 echo "zh_CN.GB18030 GB18030" >> /mnt/etc/locale.gen
@@ -106,10 +105,11 @@ echo "zh_CN GB2312" >> /mnt/etc/locale.gen
 
 echo "LANG=en_US.UTF-8" >/mnt/etc/locale.conf
 
-ln -sf /mnt/usr/share/zoneinfo/Asia/Shanghai /mnt/etc/localtime
+arch-chroot /mnt ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 arch-chroot /mnt locale-gen
 
+copy "etc/hosts"
 copy "etc/pacman.d/hooks/100-systemd-boot.hook"
 copy "etc/pacman.d/hooks/50-dash-as-sh.hook"
 copy "etc/sudoers.d/override"
