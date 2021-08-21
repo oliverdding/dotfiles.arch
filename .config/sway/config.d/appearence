@@ -1,0 +1,18 @@
+# Auto hide cursor
+seat * hide_cursor 10000
+
+# Background
+output * bg ~/Pictures/backgrounds/archlinux.png fill
+
+# Gaps
+gaps inner 5
+smart_gaps on
+
+# Borders
+default_border pixel 2
+default_floating_border none
+hide_edge_borders --i3 none
+
+# Disable cursor jumping
+mouse_warping none
+focus_follows_mouse no
