@@ -164,7 +164,7 @@ systemctl_enable "tlp.service"
 
 echo -e "\n### installing user configurations"
 
-arch-chroot /mnt sudo -u ${USER} bash -c 'git clone --recursive https://github.com/oliverdding/.dotfiles.git ~/.dotfiles'
-arch-chroot /mnt sudo -u ${USER} /home/$USER/.dotfiles/install.sh
+arch-chroot /mnt sudo -u ${USER} bash -c 'git clone --recursive https://github.com/oliverdding/.dotfiles.git ~/.config/dotfiles'
+arch-chroot /mnt sudo -u ${USER} /home/$USER/.config/dotfiles/install.sh
 
 echo -e "\n### Congratulations! Everythings are done! You can exec install-extra.sh on you favour"
