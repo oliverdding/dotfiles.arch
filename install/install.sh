@@ -9,6 +9,7 @@
 #   * containerd
 #   * zram
 #   * UEFI
+#   * iwd+systemd-network+systemd-resolved
 #
 
 set -uo pipefail
