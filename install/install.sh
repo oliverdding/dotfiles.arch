@@ -93,7 +93,7 @@ mount  "${PART_BOOT}" /mnt/boot/
 
 echo -e "\n### installing base system"
 
-pacstrap /mnt base linux linux-firmware zram-generator openssh iwd autoconf automake binutils fakeroot make pkgconf which sudo dash docker docker-compose pigz
+pacstrap /mnt base linux linux-firmware zram-generator openssh iwd autoconf automake binutils fakeroot make pkgconf which sudo dash
 
 genfstab -L /mnt >> /mnt/etc/fstab
 echo "${HOSTNAME}" > /mnt/etc/hostname
@@ -152,7 +152,7 @@ echo "root:$PASSWORD" | arch-chroot /mnt chpasswd
 
 echo -e "\n### installing useful software"
 arch-chroot /mnt pacman -Sy --noconfirm containerd tlp
-arch-chroot /mnt pacman -Sy --noconfirm git starship git-delta exa bash-completion ripgrep neovim
+arch-chroot /mnt pacman -Sy --noconfirm git starship git-delta exa bash-completion ripgrep neovim docker docker-compose pigz
 
 echo -e "\n### enabling useful systemd-module"
 
