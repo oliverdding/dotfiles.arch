@@ -6,7 +6,7 @@
 # - This script would install the arch in my favour
 # - Some keywork:
 #   * systemd-boot
-#   * containerd
+#   * docker
 #   * zram
 #   * UEFI
 #   * iwd+systemd-network+systemd-resolved
@@ -93,7 +93,7 @@ mount  "${PART_BOOT}" /mnt/boot/
 
 echo -e "\n### installing base system"
 
-pacstrap /mnt base linux linux-firmware zram-generator openssh iwd autoconf automake binutils fakeroot make pkgconf which sudo dash
+pacstrap /mnt base linux linux-firmware zram-generator openssh iwd autoconf automake binutils fakeroot make pkgconf which sudo dash docker docker-compose pigz
 
 genfstab -L /mnt >> /mnt/etc/fstab
 echo "${HOSTNAME}" > /mnt/etc/hostname
@@ -143,7 +143,7 @@ arch-chroot /mnt pacman -Sy --noconfirm ${CPU}-ucode
 echo -e "\n### user specific"
 
 arch-chroot /mnt useradd -m "$USER"
-for GROUP in wheel network video input; do
+for GROUP in wheel network video input docker; do
     arch-chroot /mnt groupadd -rf "$GROUP"
     arch-chroot /mnt gpasswd -a "$USER" "$GROUP"
 done
@@ -156,7 +156,7 @@ arch-chroot /mnt pacman -Sy --noconfirm git starship git-delta exa bash-completi
 
 echo -e "\n### enabling useful systemd-module"
 
-systemctl_enable "containerd.service"
+systemctl_enable "docker.service"
 systemctl_enable "fstrim.timer"
 systemctl_enable "iwd.service"
 systemctl_enable "systemd-resolved.service"
