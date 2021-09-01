@@ -12,7 +12,7 @@ install_package() {
 
 install_package helm kubectl kubectx
 install_package clang gcc gdb lldb go python python-setuptools python-pip python-pipenv
-install_package bandwhich bottom dua-cli gitui gping hexyl oha onefetch xplr
+install_package bandwhich bottom dua-cli gitui gping hexyl oha onefetch xplr proc miniserve
 install_package wqy-microhei wqy-bitmapfont wqy-zenhei adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts noto-fonts noto-fonts-cjk
 
 echo -e "\n### adding archlinuxcn"

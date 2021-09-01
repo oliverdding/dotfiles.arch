@@ -38,6 +38,8 @@
 * [onefetch](https://github.com/o2sh/onefetch): Git repository summary on your terminal
 * [hyperfine](https://github.com/sharkdp/hyperfine): A command-line benchmarking tool.
 * [hexyl](https://github.com/sharkdp/hexyl): A simple hex viewer for the terminal.
+* procs
+* miniserve
 
 ## preparetion
 
