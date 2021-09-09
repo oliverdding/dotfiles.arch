@@ -40,6 +40,7 @@
 * [hexyl](https://github.com/sharkdp/hexyl): A simple hex viewer for the terminal.
 * procs
 * miniserve
+* zenith
 
 ## preparetion
 

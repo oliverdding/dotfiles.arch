@@ -13,7 +13,7 @@ endif
 
 " {{{ Plugins Related
 
-call plug#begin('~/.local/share/nvim-plugin/')
+call plug#begin('~/.local/share/nvim/plugin/')
 
 if !exists('g:vscode')
     Plug 'arcticicestudio/nord-vim'
