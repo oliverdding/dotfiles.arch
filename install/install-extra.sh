@@ -23,5 +23,5 @@ arch-chroot /mnt pacman-key --init
 arch-chroot /mnt pacman-key --populate archlinux
 arch-chroot /mnt pacman-key --populate archlinuxcn
 install_package yay nerdctl nushell
-install_package rust-nightly rust-src-nightly rust-clippy-nightly rust-std-nightly-x86_64-unknown-linux-gnu
+install_package rust-nightly rust-src-nightly rust-clippy-nightly rust-std-nightly-x86_64-unknown-linux-gnu cargo-flamegraph
 install_package ttf-nerd-fonts-symbols-mono noto-fonts-emoji powerline-fonts nerd-fonts-fira-code nerd-fonts-jetbrains-mono nerd-fonts-source-code-pro nerd-fonts-ubuntu-mono
