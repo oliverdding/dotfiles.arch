@@ -41,7 +41,6 @@
 * procs
 * miniserve
 * zenith
-* cargo-flamegraph
 
 ## preparetion
 
