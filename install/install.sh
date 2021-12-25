@@ -5,8 +5,9 @@
 # - This piece of code is based on [maximbaz](https://github.com/maximbaz/dotfiles/blob/master/install.sh)'s wroks
 # - This script would install the arch in my favour
 # - Some keywork:
+#   * kernel zen
 #   * systemd-boot
-#   * docker
+#   * podman
 #   * zram
 #   * UEFI
 #   * iwd+systemd-network+systemd-resolved
