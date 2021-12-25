@@ -93,7 +93,7 @@ mount  "${PART_BOOT}" /mnt/boot/
 
 echo -e "\n### installing base system"
 
-pacstrap /mnt base linux linux-firmware zram-generator openssh iwd autoconf automake binutils fakeroot make pkgconf which sudo dash
+pacstrap /mnt base linux-zen linux-zen-headers linux-firmware zram-generator openssh iwd autoconf automake binutils fakeroot make pkgconf which sudo dash
 
 genfstab -L /mnt >> /mnt/etc/fstab
 echo "${HOSTNAME}" > /mnt/etc/hostname
@@ -142,21 +142,26 @@ arch-chroot /mnt pacman -Sy --noconfirm ${CPU}-ucode
 
 echo -e "\n### user specific"
 
-arch-chroot /mnt useradd -m "$USER"
-for GROUP in wheel network video input docker; do
+arch-chroot /mnt useradd -m "$USERNAME"
+for GROUP in wheel network video input; do
     arch-chroot /mnt groupadd -rf "$GROUP"
-    arch-chroot /mnt gpasswd -a "$USER" "$GROUP"
+    arch-chroot /mnt gpasswd -a "$USERNAME" "$GROUP"
 done
-echo "$USER:$PASSWORD" | arch-chroot /mnt chpasswd
+echo "$USERNAME:$PASSWORD" | arch-chroot /mnt chpasswd
 echo "root:$PASSWORD" | arch-chroot /mnt chpasswd
 
 echo -e "\n### installing useful software"
 arch-chroot /mnt pacman -Sy --noconfirm containerd tlp
-arch-chroot /mnt pacman -Sy --noconfirm git starship git-delta exa bash-completion ripgrep neovim docker docker-compose pigz
+arch-chroot /mnt pacman -Sy --noconfirm git starship git-delta exa bash-completion ripgrep neovim pigz podman podman-docker podman-dnsname
+
+echo -e "\n### configuring podman with rootless access"
+arch-chroot /mnt touch /etc/subuid /etc/subgid
+arch-chroot /mnt usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $USERNAME
+arch-chroot /mnt podman system migrate
 
 echo -e "\n### enabling useful systemd-module"
 
-systemctl_enable "docker.service"
+systemctl_enable "podman.service"
 systemctl_enable "fstrim.timer"
 systemctl_enable "iwd.service"
 systemctl_enable "systemd-resolved.service"
@@ -165,7 +170,7 @@ systemctl_enable "tlp.service"
 
 echo -e "\n### installing user configurations"
 
-arch-chroot /mnt sudo -u ${USER} bash -c 'git clone --recursive https://github.com/oliverdding/dotfiles.git ~/.config/dotfiles'
-arch-chroot /mnt sudo -u ${USER} /home/$USER/.config/dotfiles/install.sh
+arch-chroot /mnt sudo -u ${USERNAME} bash -c 'git clone --recursive https://github.com/oliverdding/dotfiles.git ~/.config/dotfiles'
+arch-chroot /mnt sudo -u ${USERNAME} /home/$USERNAME/.config/dotfiles/install.sh
 
 echo -e "\n### Congratulations! Everythings are done! You can exec install-extra.sh on you favour"
