@@ -124,7 +124,7 @@ copy "etc/systemd/zram-generator.conf"
 copy "etc/udev/rules.d/backlight.rules"
 copy "etc/updatedb.conf"
 
-arch-chroot /mnt mkinitcpio -p linux
+arch-chroot /mnt mkinitcpio -p linux-zen
 
 arch-chroot /mnt timedatectl set-ntp true
 
