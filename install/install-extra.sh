@@ -17,7 +17,7 @@ install_package helm kubectl kubectx
 install_package gcc gdb cmake clang lldb go python python-setuptools python-pip python-pipenv
 install_package jdk-openjdk jre-openjdk openjdk-doc openjdk-src scala scala-sources scala-docs gradle gradle-src gradle-doc sbt
 install_package cargo-flamegraph cargo-bloat cargo-edit rustup
-install_package bandwhich bottom dua-cli gitui gping hexyl oha onefetch xplr procs miniserve
+install_package bandwhich bottom bat dua-cli gitui gping hexyl oha onefetch xplr procs miniserve
 install_package wqy-microhei wqy-bitmapfont wqy-zenhei adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts noto-fonts noto-fonts-cjk
 
 arch-chroot /mnt sudo -u ${USER} rustup toolchain add nightly-x86_64-unknown-linux-gnu
