@@ -48,6 +48,11 @@ systemctl_enable() {
     arch-chroot /mnt systemctl enable "$1"
 }
 
+systemctl_user_enable() {
+    echo "systemctl user enable "$1""
+    arch-chroot /mnt sudo -u ${USERNAME} bash -c "systemctl enable --user "$1""
+}
+
 echo -e "\n### checking network"
 
 ping -c 1 8.8.8.8
@@ -151,8 +156,9 @@ done
 echo "$USERNAME:$PASSWORD" | arch-chroot /mnt chpasswd
 echo "root:$PASSWORD" | arch-chroot /mnt chpasswd
 
-echo -e "\n### installing useful software"
+echo -e "\n### installing needed software"
 arch-chroot /mnt pacman -Sy --noconfirm containerd tlp
+arch-chroot /mnt pacman -Sy --noconfirm pipewire pipewire-alsa pipewire-pulse wireplumber
 arch-chroot /mnt pacman -Sy --noconfirm git git-delta starship zoxide fzf exa bash-completion ripgrep neovim pigz podman podman-docker podman-dnsname
 
 echo -e "\n### configuring podman with rootless access"
@@ -168,6 +174,7 @@ systemctl_enable "iwd.service"
 systemctl_enable "systemd-resolved.service"
 systemctl_enable "systemd-networkd.socket"
 systemctl_enable "tlp.service"
+systemctl_user_enable "pipewire-pulse.service"
 
 echo -e "\n### installing user configurations"
 

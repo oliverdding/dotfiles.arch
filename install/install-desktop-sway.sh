@@ -10,8 +10,9 @@ install_package() {
     arch-chroot /mnt pacman -Sy --needed --noconfirm "$@"
 }
 
-install_package mako grim slurp xdg-desktop-portal-wlr
+install_package mesa wayland xdg-desktop-portal xdg-desktop-portal-wlr gstreamer gst-libav gst-plugins-base gst-plugin-pipewire gstreamer-vaapi
+install_package mako grim slurp
 install_package sway waybar swayidle swaylock wofi
 install_package alacritty
-install_package brightnessctl pulseaudio pulseaudio-alsa pulseaudio-bluetooth
+install_package brightnessctl
 
