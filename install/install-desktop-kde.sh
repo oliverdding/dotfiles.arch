@@ -17,6 +17,6 @@ systemctl_enable() {
 
 install_package mesa xf86-input-vmmouse xf86-video-vmware
 install_package gstreamer gst-libav gst-plugins-base gst-plugin-pipewire gstreamer-vaapi
-install_package plasma-desktop
+install_package plasma-desktop sddm
 
 systemctl_enable "sddm.service"
