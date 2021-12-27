@@ -48,11 +48,6 @@ systemctl_enable() {
     arch-chroot /mnt systemctl enable "$1"
 }
 
-systemctl_user_enable() {
-    echo "systemctl user enable "$1""
-    arch-chroot /mnt sudo -u ${USERNAME} bash -c "systemctl enable --user "$1""
-}
-
 echo -e "\n### checking network"
 
 ping -c 1 8.8.8.8
@@ -110,24 +105,27 @@ echo "zh_CN.GBK GBK" >> /mnt/etc/locale.gen
 echo "zh_CN.UTF-8 UTF-8" >> /mnt/etc/locale.gen
 echo "zh_CN GB2312" >> /mnt/etc/locale.gen
 
-echo "LANG=en_US.UTF-8" >/mnt/etc/locale.conf
-
 arch-chroot /mnt ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 arch-chroot /mnt locale-gen
 
-copy "etc/hosts"
-copy "etc/pacman.d/hooks/100-systemd-boot.hook"
+copy "etc/containers/nodocker"
+copy "etc/containers/registries.conf"
 copy "etc/pacman.d/hooks/50-dash-as-sh.hook"
+copy "etc/pacman.d/hooks/100-systemd-boot.hook"
 copy "etc/sudoers.d/override"
+copy "etc/sysctl.d/50-default.conf"
 copy "etc/systemd/journald.conf.d/override.conf"
 copy "etc/systemd/logind.conf.d/override.conf"
 copy "etc/systemd/network/20-wireless.network"
 copy "etc/systemd/network/50-wired.network"
 copy "etc/systemd/resolved.conf.d/dnssec.conf"
 copy "etc/systemd/zram-generator.conf"
-copy "etc/udev/rules.d/backlight.rules"
-copy "etc/updatedb.conf"
+copy "etc/environment"
+copy "etc/hosts"
+copy "etc/locale.conf"
+
+echo s/{{HOSTNAME}}/${HOSTNAME}/ | xargs -n1 sed -i /mnt/etc/hosts -e
 
 arch-chroot /mnt mkinitcpio -p linux-zen
 
@@ -157,9 +155,7 @@ echo "$USERNAME:$PASSWORD" | arch-chroot /mnt chpasswd
 echo "root:$PASSWORD" | arch-chroot /mnt chpasswd
 
 echo -e "\n### installing needed software"
-arch-chroot /mnt pacman -Sy --noconfirm containerd tlp
-arch-chroot /mnt pacman -Sy --noconfirm pipewire pipewire-alsa pipewire-pulse wireplumber
-arch-chroot /mnt pacman -Sy --noconfirm git git-delta starship zoxide fzf exa bash-completion ripgrep neovim pigz podman podman-docker podman-dnsname
+arch-chroot /mnt pacman -Sy --noconfirm git git-delta starship zoxide fzf exa bash-completion ripgrep neovim pigz containerd tlp podman podman-docker podman-dnsname
 
 echo -e "\n### configuring podman with rootless access"
 arch-chroot /mnt touch /etc/subuid /etc/subgid
@@ -174,7 +170,6 @@ systemctl_enable "iwd.service"
 systemctl_enable "systemd-resolved.service"
 systemctl_enable "systemd-networkd.socket"
 systemctl_enable "tlp.service"
-systemctl_user_enable "pipewire-pulse.service"
 
 echo -e "\n### installing user configurations"
 

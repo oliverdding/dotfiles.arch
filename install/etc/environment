@@ -1,0 +1,67 @@
+#
+# Global environment variables
+#
+
+# XDG base
+XDG_CACHE_HOME              DEFAULT="@{HOME}/.cache"
+XDG_CONFIG_HOME             DEFAULT="@{HOME}/.config"
+XDG_DATA_HOME               DEFAULT="@{HOME}/.local/share"
+XDG_STATE_HOME              DEFAULT="@{HOME}/.local/state"
+
+# PATH
+PATH                        DEFAULT="@{HOME}/.local/bin:@{HOME}/.local/share/cargo/bin:$PATH"
+
+# XDG program
+
+#DOCKER_CONFIG               DEFAULT="$XDG_CONFIG_HOME/docker"
+#MACHINE_STORAGE_PATH        DEFAULT="$XDG_DATA_HOME/docker-machine"
+
+GRADLE_USER_HOME            DEFAULT="$XDG_DATA_HOME/gradle"
+
+NPM_CONFIG_USERCONFIG       DEFAULT="$XDG_CONFIG_HOME/npm/npmrc"
+NODE_REPL_HISTORY           DEFAULT="$XDG_DATA_HOME/node_repl_history"
+
+WORKON_HOME                 DEFAULT="$XDG_DATA_HOME/virtualenvs"
+
+HISTFILE                    DEFAULT="$XDG_STATE_HOME/bash/history"
+
+GNUPGHOME                   DEFAULT="$XDG_DATA_HOME/gnupg"
+
+INPUTRC                     DEFAULT="$XDG_CONFIG_HOME/readline/inputrc"
+
+RIPGREP_CONFIG_PATH         DEFAULT="$XDG_CONFIG_HOME/ripgrep/config"
+
+GDBHISTFILE                 DEFAULT="$XDG_DATA_HOME/gdb/history"
+
+RUSTUP_HOME                 DEFAULT="$XDG_DATA_HOME/rustup"
+CARGO_HOME                  DEFAULT="$XDG_DATA_HOME/cargo"
+
+GOPATH                      DEFAULT="$XDG_DATA_HOME/go"
+
+SCREENRC                    DEFAULT="$XDG_CONFIG_HOME/screen/screenrc"
+
+PYLINTHOME                  DEFAULT="$XDG_CACHE_HOME/pylint"
+
+PASSWORD_STORE_DIR          DEFAULT="$XDG_DATA_HOME/pass"
+
+K9SCONFIG                   DEFAULT="$XDG_CONFIG_HOME/k9s"
+
+VAGRANT_HOME                DEFAULT="$XDG_DATA_HOME/vagrant"
+VAGRANT_ALIAS_FILE          DEFAULT="$XDG_DATA_HOME/vagrant/aliases"
+
+TEXMFHOME                   DEFAULT="$XDG_DATA_HOME/texmf"
+TEXMFVAR                    DEFAULT="$XDG_CACHE_HOME/texlive/texmf-var"
+TEXMFCONFIG                 DEFAULT="$XDG_CONFIG_HOME/texlive/texmf-config"
+
+# Program
+EDITOR                      DEFAULT="nvim"
+VISUAL                      DEFAULT="bat"
+PAGER                       DEFAULT="less"
+DIFFPROG                    DEFAULT="delta"
+DOCKER_BUILDKIT             DEFAULT="1"
+GOPROXY                     DEFAULT="https://goproxy.io,direct"
+DOCKER_HOST                 DEFAULT="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
+
+# Pass
+PASSWORD_STORE_CHARACTER_SET        DEFAULT="a-zA-Z0-9~!@#$%^&*()-_=+[]{};:,.<>?"
+PASSWORD_STORE_GENERATED_LENGTH     DEFAULT="40"

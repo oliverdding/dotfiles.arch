@@ -80,7 +80,6 @@ link ".local/bin/gdb"
 link ".local/bin/gpg"
 link ".local/bin/gpg" ".local/bin/gpg2"
 link ".local/bin/ls"
-link ".local/bin/sbt"
 link ".local/bin/sqlite3"
 
 echo "############################"
