@@ -159,7 +159,7 @@ echo "$USERNAME:$PASSWORD" | arch-chroot /mnt chpasswd
 echo "root:$PASSWORD" | arch-chroot /mnt chpasswd
 
 echo -e "\n### installing needed software"
-arch-chroot /mnt pacman -Sy --noconfirm git git-delta starship zoxide fzf exa bash-completion ripgrep neovim pigz containerd tlp podman podman-docker podman-dnsname
+arch-chroot /mnt pacman -Sy --noconfirm git git-delta starship zoxide fzf exa bash-completion ripgrep neovim pigz containerd tlp podman podman-docker podman-compose podman-dnsname
 
 echo -e "\n### configuring podman with rootless access"
 arch-chroot /mnt touch /etc/subuid /etc/subgid
