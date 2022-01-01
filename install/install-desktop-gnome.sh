@@ -12,3 +12,4 @@ install_package() {
 
 install_package mesa wayland xdg-desktop-portal xdg-desktop-portal-ptr
 install_package gnome gnome-tweaks
+install_package tela-icon-theme-git bibata-cursor-theme
