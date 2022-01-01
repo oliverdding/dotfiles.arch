@@ -38,14 +38,12 @@ echo "mkdir directory..."
 echo "##################"
 
 mkdir -p "$HOME"/.ssh
-mkdir -p "$HOME"/.local/share/bash
+mkdir -p "$HOME"/.local/state/bash
 mkdir -p "$HOME"/.local/share/fonts
 mkdir -p "$HOME"/.local/share/gnupg
 mkdir -p "$HOME"/.local/share/icons
-mkdir -p "$HOME"/.local/share/ivy2
 mkdir -p "$HOME"/.local/share/pass
 mkdir -p "$HOME"/.local/share/themes
-mkdir -p "$HOME"/.local/share/sbt
 mkdir -p "$HOME"/.local/share/git
 touch $HOME/.local/share/git/git-credentials
 
@@ -61,10 +59,10 @@ echo "##########################"
 link ".bash_profile"
 link ".bashrc"
 
-#link ".config/alacritty"
+link ".config/alacritty"
 link ".config/bottom"
 link ".config/Code - OSS/User/settings.json"
-link ".config\docker\config.json"
+link ".config/docker/config.json"
 link ".config/environment.d"
 link ".config/gdb/init"
 link ".config/git/config"
@@ -73,26 +71,24 @@ link ".config/git/ignore"
 link ".config/git/work"
 link ".config/k9s/skin.yml"
 link ".config/npm"
-link ".config/nu"
 link ".config/nvim"
-#link ".config/onedrive/config"
-#link ".config/sway"
-#link ".config/wofi"
+link ".config/ripgrep/config"
 link ".config/zellij"
 link ".config/chrome-flags.conf"
 link ".config/chromium-flags.conf"
 link ".config/electron-flags.conf"
 link ".config/electron12-flags.conf"
 link ".config/starship.toml"
-link ".config/wgetrc"
 
 link ".local/bin/gdb"
 link ".local/bin/gpg"
 link ".local/bin/gpg" ".local/bin/gpg2"
 link ".local/bin/ls"
-link ".local/bin/sbt"
 link ".local/bin/sqlite3"
-link ".local/bin/wget"
+
+link ".local/share/cargo/config"
+link ".local/share/gnupg/dirmngr.conf"
+link ".local/share/gnupg/gpg.conf"
 
 echo "############################"
 echo "configure others dotfiles..."

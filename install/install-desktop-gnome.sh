@@ -10,5 +10,5 @@ install_package() {
     arch-chroot /mnt pacman -Sy --needed --noconfirm "$@"
 }
 
-install_package mesa wayland xdg-desktop-portal xdg-desktop-portal-wlr gstreamer gst-libav gst-plugins-base gst-plugin-pipewire gstreamer-vaapi
+install_package mesa wayland xdg-desktop-portal xdg-desktop-portal-ptr
 install_package gnome gnome-tweaks

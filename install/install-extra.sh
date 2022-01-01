@@ -16,13 +16,9 @@ install_package() {
 install_package helm kubectl kubectx
 install_package gcc gdb cmake clang lldb go python python-setuptools python-pip python-pipenv
 install_package jdk-openjdk jre-openjdk openjdk-doc openjdk-src scala scala-sources scala-docs gradle gradle-src gradle-doc sbt
-install_package cargo-flamegraph cargo-bloat cargo-edit rustup
-install_package bandwhich bottom bat dua-cli gitui gping hexyl oha onefetch xplr procs miniserve
+install_package cargo-flamegraph cargo-bloat cargo-edit rust cargo
+install_package pass bandwhich bottom bat dua-cli gitui gping hexyl oha onefetch xplr procs miniserve
 install_package wqy-microhei wqy-bitmapfont wqy-zenhei adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts noto-fonts noto-fonts-cjk
-
-arch-chroot /mnt sudo -u ${USERNAME} RUSTUP_HOME=~/.local/share/rustup CARGO_HOME=~/.local/share/cargo bash -c 'rustup toolchain add nightly-x86_64-unknown-linux-gnu'
-arch-chroot /mnt sudo -u ${USERNAME} RUSTUP_HOME=~/.local/share/rustup CARGO_HOME=~/.local/share/cargo bash -c 'rustup default nightly-x86_64-unknown-linux-gnu'
-arch-chroot /mnt sudo -u ${USERNAME} RUSTUP_HOME=~/.local/share/rustup CARGO_HOME=~/.local/share/cargo bash -c 'rustup component add llvm-tools-preview clippy rust-analyzer-preview rust-src'
 
 echo -e "\n### adding archlinuxcn"
 echo -e '[archlinuxcn]\nServer = https://mirrors.ustc.edu.cn/archlinuxcn/$arch' >>/mnt/etc/pacman.conf
