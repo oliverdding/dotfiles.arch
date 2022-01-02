@@ -1,6 +1,7 @@
 import:
   - ~/.config/alacritty/config.d/colors.yml
   - ~/.config/alacritty/config.d/font.yml
+  - ~/.config/alacritty/config.d/keys.yml
   - ~/.config/alacritty/config.d/window.yml
 
 env:

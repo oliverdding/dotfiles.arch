@@ -126,6 +126,7 @@ copy "etc/systemd/network/20-wireless.network"
 copy "etc/systemd/network/50-wired.network"
 copy "etc/systemd/resolved.conf.d/dnssec.conf"
 copy "etc/systemd/zram-generator.conf"
+copy "install/etc/environment"
 copy "etc/hosts"
 copy "etc/locale.conf"
 
