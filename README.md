@@ -12,15 +12,6 @@
 * git
 * starship
 
-## recommand desk environment and apps
-
-* sway
-* waybar
-* alacritty
-* swaylock
-* swayidle
-* wofi
-
 ## recommand terminal apps
 
 * [Fragments](https://gitlab.gnome.org/World/Fragments): BitTorrent client for the GNOME[gtk4]
