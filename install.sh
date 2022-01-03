@@ -38,9 +38,9 @@ echo "mkdir directory..."
 echo "##################"
 
 mkdir -p "$HOME"/.ssh
+mkdir -p "$HOME"/.gnupg
 mkdir -p "$HOME"/.local/state/bash
 mkdir -p "$HOME"/.local/share/fonts
-mkdir -p "$HOME"/.local/share/gnupg
 mkdir -p "$HOME"/.local/share/icons
 mkdir -p "$HOME"/.local/share/pass
 mkdir -p "$HOME"/.local/share/themes
@@ -48,7 +48,7 @@ mkdir -p "$HOME"/.local/share/git
 touch $HOME/.local/share/git/git-credentials
 
 chmod 700 $HOME/.ssh
-chmod 700 $HOME/.local/share/gnupg
+chmod 700 $HOME/.gnupg
 chmod 700 $HOME/.local/share/pass
 chmod 700 $HOME/.local/share/git/git-credentials
 
@@ -81,14 +81,12 @@ link ".config/electron12-flags.conf"
 link ".config/starship.toml"
 
 link ".local/bin/gdb"
-link ".local/bin/gpg"
-link ".local/bin/gpg" ".local/bin/gpg2"
 link ".local/bin/ls"
 link ".local/bin/sqlite3"
 
 link ".local/share/cargo/config"
-link ".local/share/gnupg/dirmngr.conf"
-link ".local/share/gnupg/gpg.conf"
+link ".gnupg/dirmngr.conf"
+link ".gnupg/gpg.conf"
 
 echo "############################"
 echo "configure others dotfiles..."

@@ -10,8 +10,6 @@ export WORKON_HOME="$XDG_DATA_HOME/virtualenvs"
 
 export HISTFILE="$XDG_STATE_HOME/bash/history"
 
-export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/config"
