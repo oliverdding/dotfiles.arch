@@ -33,20 +33,12 @@
 * miniserve
 * zenith
 
-## preparetion
-
-* hostname: {home,work}-xxx; examples: home-manjaro, work-my-linux...
-
 ## themes
 
 * [shell theme](https://www.gnome-look.org/p/1267246)
 * [gtk theme](https://www.gnome-look.org/p/1267246)
 * [cursor theme](https://www.gnome-look.org/p/1197198/)
 * [icons theme](https://www.pling.com/p/1209330)
-
----
-
-* [gnome-terminal](https://github.com/arcticicestudio/nord-gnome-terminal)
 
 ## thanks
 
