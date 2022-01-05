@@ -10,6 +10,6 @@ install_package() {
     arch-chroot /mnt pacman -Sy --needed --noconfirm "$@"
 }
 
-install_package mesa wayland xdg-desktop-portal xdg-desktop-portal-ptr
-install_package gnome gnome-tweaks
+install_package mesa wayland xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-gnome
+install_package gnome gnome-tweaks alacritty
 install_package tela-icon-theme-git bibata-cursor-theme
