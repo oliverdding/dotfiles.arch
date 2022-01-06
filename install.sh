@@ -66,6 +66,7 @@ link ".config/git/work"
 link ".config/k9s/skin.yml"
 link ".config/npm"
 link ".config/nvim"
+link ".config/pip/pip.conf"
 link ".config/ripgrep/config"
 link ".config/zellij"
 link ".config/chrome-flags.conf"
@@ -84,6 +85,10 @@ link ".local/share/cargo/config"
 link ".local/share/gnupg/dirmngr.conf"
 link ".local/share/gnupg/gpg-agent.conf"
 link ".local/share/gnupg/gpg.conf"
+link ".local/share/gradle/init.gradle.kts"
+
+link ".m2/settings.xml"
+link ".sbt/repositories"
 
 chmod 700 $HOME/.ssh
 chmod 700 $HOME/.local/share/gnupg

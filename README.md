@@ -1,5 +1,7 @@
 # .dotfiles
 
+**I fucking hate maven and sbt, which place shit in your home directory...**
+
 ## content
 
 * [install archlinux](./install/install.sh)
