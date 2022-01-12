@@ -65,7 +65,6 @@ link ".config/git/ignore"
 link ".config/git/work"
 link ".config/k9s/skin.yml"
 link ".config/npm"
-link ".config/nvim"
 link ".config/pip/pip.conf"
 link ".config/ripgrep/config"
 link ".config/zellij"
@@ -99,7 +98,7 @@ echo "############################"
 echo "configure others dotfiles..."
 echo "############################"
 
-echo "installing vim-plug"
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-nvim +PlugInstall +qall
+if [[ -d "$HOME/.config/nvim" ]]; then git -C $HOME/.config/nvim pull; else git clone https://github.com/NvChad/NvChad.git  --depth 1 $HOME/.config/nvim; fi
+link ".config/nvim/lua/custom/chadrc.lua"
+link ".config/nvim/lua/custom/init.lua"
+link ".config/nvim/lua/custom/plugins/lspconfig.lua"

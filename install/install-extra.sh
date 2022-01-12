@@ -14,11 +14,16 @@ install_package() {
 }
 
 install_package helm kubectl kubectx
-install_package gcc gdb cmake clang lldb go python python-setuptools python-pip python-pipenv
+install_package gcc gdb cmake clang lldb
+install_package go
+install_package lua
+install_package python python-setuptools python-pip python-pipenv python-pynvim
+install_package nodejs-lts-gallium npm yarn
 install_package jdk11-openjdk jre11-openjdk openjdk11-doc openjdk11-src scala scala-sources scala-docs maven gradle gradle-src gradle-doc sbt
 install_package cargo-flamegraph cargo-bloat cargo-edit rust cargo rust-src rust-analyzer
 install_package pass bandwhich bottom bat dua-cli gitui gping hexyl oha onefetch xplr procs miniserve
 install_package wqy-microhei wqy-bitmapfont wqy-zenhei adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts noto-fonts noto-fonts-cjk
+install_package yaml-language-server gopls bash-language-server lua-language-server pyright texlab
 
 echo -e "\n### adding archlinuxcn"
 echo -e '[archlinuxcn]\nServer = https://mirrors.ustc.edu.cn/archlinuxcn/$arch' >>/mnt/etc/pacman.conf
