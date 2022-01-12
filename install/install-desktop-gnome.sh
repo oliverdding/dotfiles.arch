@@ -11,5 +11,5 @@ install_package() {
 }
 
 install_package mesa wayland xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-gnome wl-clipboard
-install_package gnome gnome-tweaks alacritty
+install_package gnome gnome-tweaks alacritty neovide
 install_package tela-icon-theme-git bibata-cursor-theme
