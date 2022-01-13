@@ -10,7 +10,7 @@ M.plugins = {
         lspconfig = {setup_lspconf = "custom.plugins.lspconfig"},
         nvimtree = {enable_git = 1,ui = {side = "right"}},
         statusline = {
-            style = "slant" -- default, round , slant , block , arrow
+            style = "arrow" -- default, round , slant , block , arrow
         }
     }
 }

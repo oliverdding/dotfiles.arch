@@ -23,7 +23,7 @@ install_package jdk11-openjdk jre11-openjdk openjdk11-doc openjdk11-src scala sc
 install_package cargo-flamegraph cargo-bloat cargo-edit rust cargo rust-src rust-analyzer
 install_package pass bandwhich bottom bat dua-cli gitui gping hexyl oha onefetch xplr procs miniserve
 install_package wqy-microhei wqy-bitmapfont wqy-zenhei adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts noto-fonts noto-fonts-cjk
-install_package yaml-language-server gopls bash-language-server lua-language-server pyright texlab
+install_package yaml-language-server vscode-json-languageserver gopls bash-language-server lua-language-server pyright texlab
 
 echo -e "\n### adding archlinuxcn"
 echo -e '[archlinuxcn]\nServer = https://mirrors.ustc.edu.cn/archlinuxcn/$arch' >>/mnt/etc/pacman.conf
