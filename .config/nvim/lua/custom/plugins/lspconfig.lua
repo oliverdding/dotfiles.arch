@@ -6,15 +6,17 @@ M.setup_lsp = function(attach, capabilities)
     -- lspservers with default config
 
     local servers = {
-        "clangd", -- c
-        "rust_analyzer", -- rust
-        "jsonls", -- json
-        "gopls", -- go
-        "yamlls", -- yaml
         "bashls", -- bash
+        "clangd", -- c
+        "cssls", -- css, less, sass
+        "denols", -- javascript, typeScript
+        "gopls", -- go
+        "jsonls", -- json
         "pyright", -- python
+        "rust_analyzer", -- rust
         "sumneko_lua", -- lua
-        "texlab" -- latex
+        "texlab", -- latex
+        "yamlls" -- yaml
     }
 
     for _, lsp in ipairs(servers) do
