@@ -13,7 +13,7 @@ M.setup_lsp = function(attach, capabilities)
         "gopls", -- go
         "jsonls", -- json
         "pyright", -- python
-        -- "rust_analyzer", -- rust
+        "rust_analyzer", -- rust
         "sumneko_lua", -- lua
         "texlab", -- latex
         "yamlls" -- yaml

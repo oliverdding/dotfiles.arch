@@ -21,7 +21,7 @@
   "vscode-neovim.neovimInitVimPaths.linux": "~/.config/nvim/init.vim",
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 1.5,
-  "workbench.colorTheme": "Gruvbox Dark Hard",
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.sideBar.location": "right"
+  "workbench.sideBar.location": "right",
+  "workbench.colorTheme": "Gruvbox Dark Hard"
 }

@@ -8,10 +8,12 @@ map("n", "<leader>q", ":q <CR>")
 local customPlugins = require "core.customPlugins"
 
 customPlugins.add(function(use)
+
     -- dap
+
     use {
         "mfussenegger/nvim-dap",
-        disable = true,
+        disable = false,
         module = "dap",
         opt = true,
         after = "nvim-lspconfig",
@@ -23,7 +25,7 @@ customPlugins.add(function(use)
 
     use {
         "rcarriga/nvim-dap-ui",
-        disable = true,
+        disable = false,
         module = "dapui",
         opt = true,
         after = "nvim-dap",
@@ -35,7 +37,7 @@ customPlugins.add(function(use)
 
     use {
         "theHamsta/nvim-dap-virtual-text",
-        disable = true,
+        disable = false,
         module = "nvim-dap-virtual-text",
         opt = true,
         after = "nvim-dap",
@@ -45,15 +47,33 @@ customPlugins.add(function(use)
         end,
     }
 
-    -- rust
+    -- dap-plugins
+
     use {
-        "simrat39/rust-tools.nvim",
-        module = "rust-tools",
+        "mfussenegger/nvim-dap-python",
+        disable = false,
+        module = "dap-python",
         opt = true,
-        after = "nvim-lspconfig",
-        config = function() require "custom.plugins.rust" end,
+        after = "nvim-dap",
+        config = function ()
+            require("dap-python").setup("python")
+        end,
         setup = function()
-            require("core.utils").packer_lazy_load "rust-tools.nvim"
+            require("core.utils").packer_lazy_load "nvim-dap-python"
+        end,
+    }
+
+    use {
+        "leoluz/nvim-dap-go",
+        disable = false,
+        module = "dap-go",
+        opt = true,
+        after = "nvim-dap",
+        config = function ()
+            require("dap-go").setup()
+        end,
+        setup = function()
+            require("core.utils").packer_lazy_load "nvim-dap-go"
         end,
     }
 end)

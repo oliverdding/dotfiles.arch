@@ -1,4 +1,4 @@
-local adapters = {'debugpy','delve', 'lldb'}
+local adapters = {'lldb'}
 
 for _, adapter in ipairs(adapters) do
   require("custom.plugins.daps." .. adapter)
