@@ -1,23 +1,31 @@
 local M = {}
 
--- Maintain the structure of `core/default_config.lua` here
-M.options = {
-    tabstop = 4,
-    shiftwidth = 4,
-}
+M.options = {tabstop = 4, shiftwidth = 4}
 
-M.ui = {theme = "gruvbox",italic_comments = true,}
+M.ui = {italic_comments = true, theme = "gruvbox"}
 
 M.plugins = {
-    status = {colorizer = true, dashboard = false},
+    status = {colorizer = true},
     options = {
-        lspconfig = {setup_lspconf = "custom.plugins.lspconfig"},
-        nvimtree = {
-            enable_git = 1,
-            ui = {side = "right", hide_root_folder = false}
-        },
         statusline = {
-            style = "arrow", -- default, round , slant , block , arrow
+            style = "arrow" -- default, round , slant , block , arrow
+        }
+    },
+    default_plugin_config_replace = {
+        nvim_treesitter = {
+            ensure_installed = {
+                "bash", "c", "cmake", "cpp", "dockerfile", "go", "java",
+                "json5", "latex", "llvm", "lua", "make", "python", "regex",
+                "rust", "scala", "toml", "yaml"
+            }
+        },
+        nvim_tree = {
+            view = {side = 'right', auto_resize = true},
+            trash = {cmd = "rmtrash", require_confirm = true}
+        },
+        gitsigns = {
+            current_line_blame = true,
+            current_line_blame_opts = {ignore_whitespace = true}
         }
     }
 }
