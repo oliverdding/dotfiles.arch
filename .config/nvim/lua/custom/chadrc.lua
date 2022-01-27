@@ -1,12 +1,13 @@
 local M = {}
 
-M.options = {tabstop = 4, shiftwidth = 4}
+M.options = {relativenumber = true, tabstop = 4, shiftwidth = 4}
 
 M.ui = {italic_comments = true, theme = "gruvbox"}
 
 M.plugins = {
     status = {colorizer = true},
     options = {
+        lspconfig = {setup_lspconf = "custom.plugins.lspconfig"},
         statusline = {
             style = "arrow" -- default, round , slant , block , arrow
         }
