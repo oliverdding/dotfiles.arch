@@ -7,7 +7,6 @@
 # - Some keywork:
 #   * kernel zen
 #   * systemd-boot
-#   * podman
 #   * zram
 #   * UEFI
 #   * iwd+systemd-network+systemd-resolved
@@ -160,16 +159,10 @@ echo "$USERNAME:$PASSWORD" | arch-chroot /mnt chpasswd
 echo "root:$PASSWORD" | arch-chroot /mnt chpasswd
 
 echo -e "\n### installing needed software"
-arch-chroot /mnt pacman -Sy --noconfirm git git-delta starship zoxide fzf exa bash-completion ripgrep neovim pigz containerd tlp podman podman-docker podman-compose podman-dnsname
-
-echo -e "\n### configuring podman with rootless access"
-arch-chroot /mnt touch /etc/subuid /etc/subgid
-arch-chroot /mnt usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $USERNAME
-arch-chroot /mnt podman system migrate
+arch-chroot /mnt pacman -Sy --noconfirm git git-delta starship zoxide fzf exa bash-completion ripgrep neovim pigz containerd tlp
 
 echo -e "\n### enabling useful systemd-module"
 
-systemctl_enable "podman.service"
 systemctl_enable "fstrim.timer"
 systemctl_enable "iwd.service"
 systemctl_enable "systemd-resolved.service"
