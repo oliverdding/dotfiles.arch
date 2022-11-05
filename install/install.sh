@@ -108,15 +108,8 @@ arch-chroot /mnt ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 arch-chroot /mnt locale-gen
 
-copy "etc/containers/nodocker"
-copy "etc/containers/registries.conf"
 copy "etc/pacman.d/hooks/50-dash-as-sh.hook"
 copy "etc/pacman.d/hooks/100-systemd-boot.hook"
-copy "etc/profile.d/10-xdg-base.sh"
-copy "etc/profile.d/30-system.sh"
-copy "etc/profile.d/50-program.sh"
-copy "etc/profile.d/70-xdg-program.sh"
-copy "etc/profile.d/90-pass.sh"
 copy "etc/sudoers.d/override"
 copy "etc/sysctl.d/50-default.conf"
 copy "etc/systemd/journald.conf.d/override.conf"
@@ -132,10 +125,6 @@ copy "etc/locale.conf"
 echo s/{{HOSTNAME}}/${HOSTNAME}/ | xargs -n1 sed -i /mnt/etc/hosts -e
 
 arch-chroot /mnt mkinitcpio -p linux-zen
-
-arch-chroot /mnt timedatectl set-ntp true
-
-arch-chroot /mnt hwclock --systohc --utc
 
 echo -e "\n### install systemd-boot"
 
@@ -159,19 +148,11 @@ echo "$USERNAME:$PASSWORD" | arch-chroot /mnt chpasswd
 echo "root:$PASSWORD" | arch-chroot /mnt chpasswd
 
 echo -e "\n### installing needed software"
-arch-chroot /mnt pacman -Sy --noconfirm git git-delta starship zoxide fzf exa bash-completion ripgrep neovim pigz containerd tlp
+arch-chroot /mnt pacman -Sy --noconfirm git git-delta starship zoxide fzf exa bash-completion ripgrep neovim pigz tlp networkmanager
 
 echo -e "\n### enabling useful systemd-module"
 
 systemctl_enable "fstrim.timer"
-systemctl_enable "iwd.service"
-systemctl_enable "systemd-resolved.service"
-systemctl_enable "systemd-networkd.socket"
+systemctl_enable "NetworkManager.service"
 systemctl_enable "tlp.service"
 
-echo -e "\n### installing user configurations"
-
-arch-chroot /mnt sudo -u ${USERNAME} bash -c 'git clone --recursive https://github.com/oliverdding/dotfiles.git ~/.config/dotfiles'
-arch-chroot /mnt sudo -u ${USERNAME} /home/$USERNAME/.config/dotfiles/install.sh
-
-echo -e "\n### Congratulations! Everythings are done! You can exec install-extra.sh on you favour"
